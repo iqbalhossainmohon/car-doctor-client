@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
 
@@ -19,6 +20,7 @@ const SignUp = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            form.reset();
         })
         .catch(error => console.log(error))
     }
@@ -59,6 +61,8 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p><small>Already Have an Account? </small><Link className='text-orange-500 font-bold' to='/login'>Login</Link> </p>
+
+                        <SocialLogin/>
                     </div>
                 </div>
             </div>
